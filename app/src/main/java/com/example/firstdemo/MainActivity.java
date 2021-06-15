@@ -1,56 +1,61 @@
 package com.example.firstdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
-    private List<Item> itemList = new ArrayList<>();
+    private class myPageAdapter extends FragmentStatePagerAdapter {
+
+        public myPageAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new FirstFragment();
+                case 1:
+                    return new SecondFragment();
+                case 2:
+                    return new FirstFragment();
+                default:
+                    return new FirstFragment();
+            }
+
+        }
+
+    }
+
+    private ViewPager mPage;
+    private PagerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initItems();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view);
-        StaggeredGridLayoutManager layoutManager = new
-                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        ItemAdapter adapter = new ItemAdapter(itemList);
-        recyclerView.setAdapter(adapter);
+
+        mPage = (ViewPager) findViewById(R.id.pagers);
+        mAdapter = new myPageAdapter(getSupportFragmentManager());
+        mPage.setAdapter(mAdapter);
     }
 
-    private int randomInt(){
-        return 1 + (int)(Math.random() * (100));
-    }
-
-    private void initItems(){
-        Item item1 = new Item("Peaceful Moments from the Witcher",randomInt(),randomInt(),randomInt(),
-                "Adam Skorupa",R.drawable.item1);
-        itemList.add(item1);
-        Item item2 = new Item("Aimer - Romeo et Juliette",randomInt(),randomInt(),randomInt(),
-                "Gerard Presgurvic",R.drawable.item2);
-        itemList.add(item2);
-        Item item3 = new Item("Welcome to the Rock",randomInt(),randomInt(),randomInt(),
-                "Broadway Cast",R.drawable.item3);
-        itemList.add(item3);
-        Item item4 = new Item("Wenn ich tanzen will",randomInt(),randomInt(),randomInt(),
-                "Mia",R.drawable.item4);
-        itemList.add(item4);
-        Item item5 = new Item("Popular",randomInt(),randomInt(),randomInt(),
-                "Kristin Chenoweth",R.drawable.item5);
-        itemList.add(item5);
-        Item item6 = new Item("La gloire a mes genoux",randomInt(),randomInt(),randomInt(),
-                "Come",R.drawable.item6);
-        itemList.add(item6);
-        Item item7 = new Item("Satisfied",randomInt(),randomInt(),randomInt(),
-                "Renee",R.drawable.item7);
-        itemList.add(item7);
-    }
 }
