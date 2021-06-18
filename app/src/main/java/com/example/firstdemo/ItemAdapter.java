@@ -16,6 +16,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -76,7 +78,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 intent.putExtra("img",item.getImgId());
                 intent.putExtra("name",item.getName());
                 intent.putExtra("author",item.getDescription());
-
                 ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation(
                         activity,holder.img, ViewCompat.getTransitionName(holder.img));
                 activity.startActivity(intent,compat.toBundle());
@@ -91,7 +92,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         Item item = mitemList.get(position);
         holder.play.setTypeface(iconfont);
         holder.more.setTypeface(iconfont);
-        holder.img.setImageResource(item.getImgId());
+        Glide.with(activity)
+                .load(item.getImgId())
+                .into(holder.img);
+//        holder.img.setImageResource(item.getImgId());
         holder.duration.setText(item.getDuration());
         holder.title.setText(item.getName());
         holder.description.setText(item.getDescription());

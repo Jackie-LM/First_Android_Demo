@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,18 @@ public class SecondFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.second_fragment, container, false);
+
+        Glide.with(this)
+                .load(R.drawable.item2_l)
+                .into((ImageView) view.findViewById(R.id.image_fra_2));
+
+        Glide.with(this)
+                .load(R.drawable.banner_2)
+                .into((ImageView)view.findViewById(R.id.banner_fra_2));
+
+        Glide.with(this)
+                .load(R.drawable.page_bnr)
+                .into((ImageView)view.findViewById(R.id.background_fra_2));
 
         initItems();
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycle_view_2);

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.w3c.dom.Text;
 
 public class InfoActivity extends AppCompatActivity {
@@ -24,7 +26,9 @@ public class InfoActivity extends AppCompatActivity {
         TextView nameText = (TextView) findViewById(R.id.info_name);
         TextView authorText = (TextView) findViewById(R.id.info_author);
 
-        img.setImageResource(id);
+        Glide.with(this)
+                .load(id)
+                .into(img);
         nameText.setText(name);
         authorText.setText(author);
 

@@ -14,9 +14,9 @@
             android:background="@drawable/background_gradient">
 
             <ImageView
+                android:id="@+id/background_fra_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/page_bnr"
                 android:adjustViewBounds="true"
                 />
 
@@ -58,10 +58,10 @@
                             >
 
                             <ImageView
+                                android:id="@+id/image_fra_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="200dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/item2"
                                 android:adjustViewBounds="true"
                                 />
 
@@ -87,10 +87,10 @@
                             >
 
                             <ImageView
+                                android:id="@+id/banner_fra_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/banner_2"
                                 android:adjustViewBounds="true"
                                 />
 
