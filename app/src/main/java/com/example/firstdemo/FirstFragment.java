@@ -26,7 +26,7 @@ public class FirstFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        ItemAdapter adapter = new ItemAdapter(itemList);
+        ItemAdapter adapter = new ItemAdapter(itemList,getContext().getAssets(),getActivity());
         recyclerView.setAdapter(adapter);
         return view;
     }

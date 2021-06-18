@@ -1,5 +1,7 @@
 package com.example.firstdemo;
 
+import android.media.Image;
+
 public class Item {
 
     private String name;
@@ -51,6 +53,7 @@ public class Item {
     }
 
     public int getImgId() {
+
         return imgId;
     }
 

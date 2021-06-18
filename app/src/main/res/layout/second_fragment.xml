@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:outlineSpotShadowColor="@android:color/transparent"
+                    android:stateListAnimator="@null"
                     >
 
                     <com.google.android.material.appbar.CollapsingToolbarLayout

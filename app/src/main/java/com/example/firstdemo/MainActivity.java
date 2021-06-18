@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
                 case 1:
                     return new SecondFragment();
                 case 2:
-                    return new FirstFragment();
+                    return new ThirdFragment();
                 default:
                     return new FirstFragment();
             }
@@ -62,10 +62,12 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_FirstDemo);
         setContentView(R.layout.activity_main);
 
         mPage = (ViewPager) findViewById(R.id.pagers);
         tab = (TabLayout) findViewById(R.id.tab_layout);
+        mPage.setOffscreenPageLimit(2);
         tab.setupWithViewPager(mPage);
         mAdapter = new myPageAdapter(getSupportFragmentManager());
         mPage.setAdapter(mAdapter);
