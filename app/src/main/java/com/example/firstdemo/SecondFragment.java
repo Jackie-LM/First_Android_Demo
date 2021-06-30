@@ -39,26 +39,26 @@ public class SecondFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        ItemAdapter2 adapter = new ItemAdapter2(itemList);
+        ItemAdapter2 adapter = new ItemAdapter2(itemList,getActivity());
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
     private void initItems(){
-        Item2 item1 = new Item2("Peaceful Moments\n from the Witcher", R.drawable.item1);
+        Item2 item1 = new Item2("Peaceful Moments\n from the Witcher", R.drawable.item1_l);
         itemList.add(item1);
-        Item2 item2 = new Item2("Aimer\n Romeo et Juliette", R.drawable.item2);
+        Item2 item2 = new Item2("Aimer\n Romeo et Juliette", R.drawable.item2_l);
         itemList.add(item2);
-        Item2 item3 = new Item2("Welcome to the Rock", R.drawable.item3);
+        Item2 item3 = new Item2("Welcome to the Rock", R.drawable.item3_l);
         itemList.add(item3);
-        Item2 item4 = new Item2("Wenn ich tanzen will", R.drawable.item4);
+        Item2 item4 = new Item2("Wenn ich tanzen will", R.drawable.item4_l);
         itemList.add(item4);
-        Item2 item5 = new Item2("Popular", R.drawable.item5);
+        Item2 item5 = new Item2("Popular", R.drawable.item5_l);
         itemList.add(item5);
-        Item2 item6 = new Item2("La gloire a mes genoux", R.drawable.item6);
+        Item2 item6 = new Item2("La gloire a mes genoux", R.drawable.item6_l);
         itemList.add(item6);
-        Item2 item7 = new Item2("Satisfied", R.drawable.item7);
+        Item2 item7 = new Item2("Satisfied", R.drawable.item7_l);
         itemList.add(item7);
     }
 

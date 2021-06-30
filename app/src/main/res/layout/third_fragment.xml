@@ -12,9 +12,9 @@
         android:background="@drawable/background_3_s">
 
         <ImageView
+            android:id="@+id/noplan_title"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/noplan_title"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
             android:adjustViewBounds="true"/>

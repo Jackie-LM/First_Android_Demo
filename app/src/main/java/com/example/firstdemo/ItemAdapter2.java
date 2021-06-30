@@ -1,5 +1,6 @@
 package com.example.firstdemo;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -25,9 +28,11 @@ public class ItemAdapter2 extends RecyclerView.Adapter<ItemAdapter2.ViewHolder> 
     }
 
     private List<Item2> mitemList;
+    private Activity activity;
 
-    public ItemAdapter2(List<Item2> itemList) {
+    public ItemAdapter2(List<Item2> itemList, Activity act) {
         mitemList = itemList;
+        activity = act;
     }
 
     @Override
@@ -41,7 +46,10 @@ public class ItemAdapter2 extends RecyclerView.Adapter<ItemAdapter2.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Item2 item = mitemList.get(position);
-        holder.img.setImageResource(item.getImgId());
+
+        Glide.with(activity)
+                .load(item.getImgId())
+                .into(holder.img);
         holder.text.setText(item.getText());
     }
 
